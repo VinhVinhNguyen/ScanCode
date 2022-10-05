@@ -1,7 +1,11 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <div>Test</div>
-  <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded" />
+  <StreamBarcodeReader
+    @decode="onDecode"
+    @loaded="onLoaded"
+    style="height: 8rem"
+  />
 </template>
 
 <script>
@@ -9,10 +13,11 @@ import { StreamBarcodeReader } from "vue-barcode-reader";
 export default {
   methods: {
     onDecode(data) {
-      alert(data);
       const sku = data.split("|")[0];
       if (sku) {
         alert(sku);
+      } else {
+        alert(data, "kkkk");
       }
     },
     onLoaded() {
